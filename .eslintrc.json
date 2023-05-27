@@ -1,0 +1,6 @@
+{
+    "extends" : "@alvarosabu",
+    "rules" : {
+        "@typescript-eslint/no-use-before-define" : "off"
+    }
+}
