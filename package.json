@@ -28,6 +28,7 @@
     "preview": "vite preview",
     "lint": "eslint --ext .ts,.tsx .",
     "test": "vitest",
+    "test:ci": "vitest run",
     "test:ui": "vitest --ui"
   },
   "devDependencies": {
