@@ -1,5 +1,5 @@
 import { expect, it, suite } from 'vitest'
-import { snakeToCamel, camelToSnake, listCamelToSnake, listSnakeToCamel, slugify } from './index'
+import { snakeToCamel, camelToSnake, listCamelToSnake, listSnakeToCamel, slugify, kebabToCamel, camelToKebab, listCamelToKebab, listKebabToCamel } from './index'
 
 suite('Slugify', () => {
   it('should replace all spaces with -', () => {
@@ -126,6 +126,117 @@ suite('🐍 & 🐫', () => {
       {
         name: 'Charizard',
         has_evolved: true,
+      },
+    ])
+  })
+})
+
+suite('🍢 & 🐫', () => {
+  it('should convert all properties from object from kebab to camel', () => {
+    const myKebabObj = {
+      'status-id': 1,
+      name: 'pingui',
+      'last-updated': 'today',
+    }
+
+    expect(kebabToCamel(myKebabObj)).toStrictEqual({
+      statusId: 1,
+      name: 'pingui',
+      lastUpdated: 'today',
+    })
+  })
+
+  it('should convert all properties from object from kebab to camel recursively', () => {
+    const myKebabObj = {
+      'status-id': 1,
+      character: {
+        name: 'pingui',
+        'last-updated': 'today',
+      },
+    }
+
+    expect(kebabToCamel(myKebabObj)).toStrictEqual({
+      statusId: 1,
+      character: {
+        name: 'pingui',
+        lastUpdated: 'today',
+      },
+    })
+  })
+
+  it('should convert all properties from object from camel to kebab', () => {
+    const myCamelObj = {
+      statusId: 1,
+      name: 'pingui',
+      lastUpdated: 'today',
+    }
+
+    expect(camelToKebab(myCamelObj)).toStrictEqual({
+      'status-id': 1,
+      name: 'pingui',
+      'last-updated': 'today',
+    })
+  })
+
+  it('should convert all properties from object from camel to kebab recusively', () => {
+    const myCamelObj = {
+      statusId: 1,
+      character: {
+        name: 'pingui',
+        lastUpdated: 'today',
+      },
+    }
+
+    expect(camelToKebab(myCamelObj)).toStrictEqual({
+      'status-id': 1,
+      character: {
+        name: 'pingui',
+        'last-updated': 'today',
+      },
+    })
+  })
+
+  it('should convert a list of objects with kebabCase properties to CamelCase', () => {
+    const myKebabArray = [
+      {
+        name: 'Bulbasaur',
+        'has-evolved': false,
+      },
+      {
+        name: 'Charizard',
+        'has-evolved': true,
+      },
+    ]
+    expect(listKebabToCamel(myKebabArray)).toStrictEqual([
+      {
+        name: 'Bulbasaur',
+        hasEvolved: false,
+      },
+      {
+        name: 'Charizard',
+        hasEvolved: true,
+      },
+    ])
+  })
+  it('should convert a list of objects with kebabCase properties to CamelCase', () => {
+    const myKebabArray = [
+      {
+        name: 'Bulbasaur',
+        hasEvolved: false,
+      },
+      {
+        name: 'Charizard',
+        hasEvolved: true,
+      },
+    ]
+    expect(listCamelToKebab(myKebabArray)).toStrictEqual([
+      {
+        name: 'Bulbasaur',
+        'has-evolved': false,
+      },
+      {
+        name: 'Charizard',
+        'has-evolved': true,
       },
     ])
   })

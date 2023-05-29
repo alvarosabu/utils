@@ -82,3 +82,67 @@ export const camelToSnake = (myObj: KeyObject) => {
   })
   return newObj
 }
+
+export const listKebabToCamel: any = (arr: any[]) =>
+  arr.map((el: any) => {
+    if (isArray(el)) {
+      return listKebabToCamel(el)
+    }
+    if (isObject(el)) {
+      return kebabToCamel(el)
+    }
+    return el
+  })
+
+export const listCamelToKebab: any = (arr: any[]) =>
+  arr.map((el: any) => {
+    if (isArray(el)) {
+      return listCamelToKebab(el)
+    }
+    if (isObject(el)) {
+      return camelToKebab(el)
+    }
+    return el
+  })
+
+export const kebabToCamel = (myObj: KeyObject) => {
+  const newObj: KeyObject = {}
+  Object.keys(myObj).forEach((key) => {
+    if (isArray(myObj[key])) {
+      newObj[key.replace(/(-\w)/g, m => m[1].toUpperCase())]
+        = listKebabToCamel(myObj[key])
+    }
+    else if (isObject(myObj[key])) {
+      newObj[key.replace(/(-\w)/g, m => m[1].toUpperCase())] = kebabToCamel(
+        myObj[key],
+      )
+    }
+    else {
+      newObj[key.replace(/(-\w)/g, m => m[1].toUpperCase())] = myObj[key]
+    }
+    // do something with obj
+  })
+  return newObj
+}
+
+export const camelToKebab = (myObj: KeyObject) => {
+  const newObj: KeyObject = {}
+  Object.keys(myObj).forEach((key) => {
+    if (isArray(myObj[key])) {
+      newObj[key.replace(/([A-Z])/g, $1 => `-${$1.toLowerCase()}`)] = myObj[
+        key
+      ] = listCamelToKebab(myObj[key])
+    }
+    else if (isObject(myObj[key])) {
+      newObj[key.replace(/([A-Z])/g, $1 => `-${$1.toLowerCase()}`)] = myObj[
+        key
+      ] = camelToKebab(myObj[key])
+    }
+    else {
+      newObj[key.replace(/([A-Z])/g, $1 => `-${$1.toLowerCase()}`)]
+        = myObj[key]
+    }
+    // do something with obj
+  })
+  return newObj
+}
