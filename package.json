@@ -1,9 +1,14 @@
 {
   "name": "@alvarosabu/utils",
+  "type": "module",
   "version": "3.1.1",
   "description": "Personal collection of common JavaScript / TypeScript utils",
   "author": "Alvaro Saburido <hola@alvarosaburido.dev> (https://github.com/alvarosabu/)",
-  "type": "module",
+  "keywords": [
+    "utils",
+    "javascript",
+    "typescript"
+  ],
   "exports": {
     ".": {
       "import": "./dist/as-utils.mjs"
@@ -17,11 +22,6 @@
   "files": [
     "dist"
   ],
-  "keywords": [
-    "utils",
-    "javascript",
-    "typescript"
-  ],
   "scripts": {
     "dev": "vite",
     "build": "unbuild",
@@ -29,7 +29,8 @@
     "lint": "eslint --ext .ts,.tsx .",
     "test": "vitest",
     "test:ci": "vitest run",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "release": "release-it"
   },
   "devDependencies": {
     "@alvarosabu/eslint-config": "^0.4.0",
