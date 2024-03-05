@@ -1,5 +1,15 @@
 import { expect, it, suite } from 'vitest'
-import { snakeToCamel, camelToSnake, listCamelToSnake, listSnakeToCamel, slugify, kebabToCamel, camelToKebab, listCamelToKebab, listKebabToCamel } from './index'
+import { 
+  snakeToCamel,
+  camelToSnake,
+  listCamelToSnake,
+  listSnakeToCamel,
+  slugify,
+  kebabToCamel,
+  camelToKebab,
+  listCamelToKebab,
+  listKebabToCamel, 
+} from './index'
 
 suite('Slugify', () => {
   it('should replace all spaces with -', () => {
