@@ -1,17 +1,18 @@
+/* eslint-disable test/no-identical-title */
 import { expect, it, suite } from 'vitest'
 
 import {
+  hasValue,
   isArray,
-  isString,
   isBoolean,
+  isDefined,
+  isEmpty,
+  isEvent,
   isFunction,
   isNumber,
   isObject,
-  isEvent,
   isPromise,
-  isEmpty,
-  isDefined,
-  hasValue,
+  isString,
 } from './'
 
 suite('is Boolean', () => {
@@ -48,6 +49,7 @@ suite('isFunction', () => {
 suite('is Number', () => {
   it('should return true if the value is a string', () => {
     expect(isNumber(234)).toBe(true)
+    expect(isNumber('1')).toBe(false)
   })
 
   it('should return false if the value is not a string', () => {

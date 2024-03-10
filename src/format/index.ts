@@ -1,10 +1,11 @@
-import { isArray, isObject } from '../is'
-
+/* eslint-disable ts/no-use-before-define */
 /**
  * Returns slugify version of a string
  * @param  {string} text
  * @returns string
  */
+import { isArray, isObject } from '../is'
+
 export const slugify = (text: string): string =>
   text
     .toString()

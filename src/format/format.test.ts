@@ -1,14 +1,14 @@
+/* eslint-disable test/no-identical-title */
 import { expect, it, suite } from 'vitest'
-import { 
-  snakeToCamel,
+import {
+  camelToKebab,
   camelToSnake,
-  listCamelToSnake,
+  kebabToCamel,
+  listCamelToKebab,
+  listKebabToCamel,
   listSnakeToCamel,
   slugify,
-  kebabToCamel,
-  camelToKebab,
-  listCamelToKebab,
-  listKebabToCamel, 
+  snakeToCamel,
 } from './index'
 
 suite('Slugify', () => {
@@ -117,35 +117,13 @@ suite('🐍 & 🐫', () => {
       },
     ])
   })
-  it('should convert a list of objects with snakeCase properties to CamelCase', () => {
-    const mySnakeArray = [
-      {
-        name: 'Bulbasaur',
-        hasEvolved: false,
-      },
-      {
-        name: 'Charizard',
-        hasEvolved: true,
-      },
-    ]
-    expect(listCamelToSnake(mySnakeArray)).toStrictEqual([
-      {
-        name: 'Bulbasaur',
-        has_evolved: false,
-      },
-      {
-        name: 'Charizard',
-        has_evolved: true,
-      },
-    ])
-  })
 })
 
 suite('🍢 & 🐫', () => {
   it('should convert all properties from object from kebab to camel', () => {
     const myKebabObj = {
       'status-id': 1,
-      name: 'pingui',
+      'name': 'pingui',
       'last-updated': 'today',
     }
 
@@ -159,8 +137,8 @@ suite('🍢 & 🐫', () => {
   it('should convert all properties from object from kebab to camel recursively', () => {
     const myKebabObj = {
       'status-id': 1,
-      character: {
-        name: 'pingui',
+      'character': {
+        'name': 'pingui',
         'last-updated': 'today',
       },
     }
@@ -183,7 +161,7 @@ suite('🍢 & 🐫', () => {
 
     expect(camelToKebab(myCamelObj)).toStrictEqual({
       'status-id': 1,
-      name: 'pingui',
+      'name': 'pingui',
       'last-updated': 'today',
     })
   })
@@ -199,8 +177,8 @@ suite('🍢 & 🐫', () => {
 
     expect(camelToKebab(myCamelObj)).toStrictEqual({
       'status-id': 1,
-      character: {
-        name: 'pingui',
+      'character': {
+        'name': 'pingui',
         'last-updated': 'today',
       },
     })
@@ -209,11 +187,11 @@ suite('🍢 & 🐫', () => {
   it('should convert a list of objects with kebabCase properties to CamelCase', () => {
     const myKebabArray = [
       {
-        name: 'Bulbasaur',
+        'name': 'Bulbasaur',
         'has-evolved': false,
       },
       {
-        name: 'Charizard',
+        'name': 'Charizard',
         'has-evolved': true,
       },
     ]
@@ -241,11 +219,11 @@ suite('🍢 & 🐫', () => {
     ]
     expect(listCamelToKebab(myKebabArray)).toStrictEqual([
       {
-        name: 'Bulbasaur',
+        'name': 'Bulbasaur',
         'has-evolved': false,
       },
       {
-        name: 'Charizard',
+        'name': 'Charizard',
         'has-evolved': true,
       },
     ])

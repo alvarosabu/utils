@@ -1,6 +1,6 @@
 import { isTruthy, noNull, notNullish, notUndefined } from '.'
 
-describe('Guards', () => {
+describe('guards', () => {
   it('should remove all nullish values from array', () => {
     const array = [1, 2, null, 3, null, 4, null, 5]
     const result = array.filter(notNullish)
