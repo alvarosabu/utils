@@ -3,4 +3,3 @@
 # @alvarosabu/utils 🧰
 
 > Typescript utils for my projects
-
