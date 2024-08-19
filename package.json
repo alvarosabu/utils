@@ -2,7 +2,7 @@
   "name": "@alvarosabu/utils",
   "type": "module",
   "version": "3.2.0",
-  "packageManager": "pnpm@8.12.0",
+  "packageManager": "pnpm@9.5.0",
   "description": "Personal collection of common JavaScript / TypeScript utils",
   "author": "Alvaro Saburido <hola@alvarosaburido.dev> (https://github.com/alvarosabu/)",
   "license": "MIT",
@@ -45,13 +45,13 @@
     "release": "release-it"
   },
   "devDependencies": {
-    "@alvarosabu/eslint-config": "^1.1.0",
+    "@alvarosabu/eslint-config": "^1.2.0",
     "@release-it/conventional-changelog": "^8.0.1",
-    "@vitest/ui": "^1.4.0",
-    "eslint": "^9.0.0",
-    "typescript": "^5.4.4",
+    "@vitest/ui": "^2.0.5",
+    "eslint": "^9.9.0",
+    "typescript": "^5.5.4",
     "unbuild": "^2.0.0",
-    "vite": "^5.2.8",
-    "vitest": "^1.4.0"
+    "vite": "^5.4.1",
+    "vitest": "^2.0.5"
   }
 }
